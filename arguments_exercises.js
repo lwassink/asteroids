@@ -28,9 +28,8 @@ Function.prototype.myBind1 = function(){
 }
 
 Function.prototype.myBind = function(...args){
-  let that = this;
-  return function(...args2) {
-    return that.apply(args[0], args.slice(1).concat(args2));
+  return (...args2) => {
+    return this.apply(args[0], args.slice(1).concat(args2));
   }
 }
 
@@ -66,8 +65,7 @@ class Cat {
 //
 // const notMarkovSays = markov.says.myBind(breakfast);
 // notMarkovSays("meow", "me");
-// Breakfast says meow to me!
-// true
+// // Breakfast says meow to me!
 
 
 
